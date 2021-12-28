@@ -9,21 +9,18 @@ const AddRestaurant = ({ setFetchRestaurants }) => {
     e.preventDefault();
 
     try {
-      const addedRest = await fetch(
-        "http://localhost:3001/api/v1/restaurants",
-        {
-          method: "POST",
-          made: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            location,
-            price_range: priceRange,
-          }),
-        }
-      );
+      await fetch("http://localhost:3001/api/v1/restaurants", {
+        method: "POST",
+        made: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          location,
+          price_range: priceRange,
+        }),
+      });
       setName("");
       setLocation("");
       setPriceRange("");
